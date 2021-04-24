@@ -11,7 +11,7 @@ with open('json_file.json') as f:
     file_data = json.load(f)
 
 for i in range(200):
-    print("you are in page ", i)
+    print("you are in page ", i + 1)
     for _ in my_db.restaurant.find().skip(pagination_by * (i - 0)).limit(pagination_by):
         print(_)
         page += 1

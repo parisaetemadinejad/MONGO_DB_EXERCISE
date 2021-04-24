@@ -9,13 +9,8 @@ with open('json_file.json') as f:
     file_data = json.load(f)
 i = 0
 for _ in db.restaurant.find({
-    "$or": [
-        {"grades.score": {
-            "$lt": 10}},
-        {"grades.score": {
-            "$eq": 10}}
-    ]
-
+    "grades.score": {
+        "$lte": 10},
 }, {"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1, "_id": 0}):
     print(_)
     i += 1
